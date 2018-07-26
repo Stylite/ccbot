@@ -1,0 +1,8 @@
+
+{
+    "bot_name": "Your bot name",
+    "author": "Your name",
+    "prefix": "Your prefix",
+    "token": "Your bot token",
+    "description": "A description for the bot"
+}
