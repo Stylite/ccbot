@@ -4,6 +4,8 @@ CookieCutterBot is a simple to run discord bot.
 
 ## Installation
 
+![GIF](http://hey-you.lets-go-get.coffee/e624782d4c.gif)
+
 ### Requirements
 * Linux or Windows or macOS
 * Python 3.6 and up
