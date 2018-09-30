@@ -28,6 +28,7 @@ for cog in os.listdir('cogs'):
     async def on_ready():
         print('Login successful.')
         print(f'Logged in as: {bot.user.name}')
+        print(f'Bot ID: {bot.user.id}')
         print(f'Server count: {len(bot.guilds)}')
 
 bot.run(config['token'])
