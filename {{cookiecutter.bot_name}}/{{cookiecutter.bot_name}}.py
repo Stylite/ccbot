@@ -1,21 +1,32 @@
-from discord.ext import commands
 import os
+import traceback
 import json
+
+from discord.ext import commands
 
 with open('config.json') as config:
     config = json.load(config)
 
-bot = commands.AutoShardedBot(command_prefix=config['prefix'], description = """{{cookiecutter.description}}""")
+bot = commands.AutoShardedBot(
+        command_prefix=config['prefix'],
+        description = """{{cookiecutter.description}}"""
+)
 
 for cog in os.listdir('cogs'):
     if not cog.endswith('.py'):
         continue
     try:
         bot.load_extension(f'cogs.{cog[:-3]}')
-    except SyntaxError as es:
-        print(f'Failed to load cog {cog} becayse of a syntaxerror.')
-    except ImportError as ei:
-        print(f'Failed to load {cog} because of a importerror.')
+    except Exception as e:
+        stack_trace =  "".join(traceback.format_exception(
+                            type(e),
+                            e,
+                            e.__traceback__
+                        ))
+        print(f"Failed to load cog {cog}, stack trace:\n{stack_trace}")
+    else:
+        print(f"Successfully loaded cog {cog}!")
+
 
     @bot.event
     async def on_message(ctx):
