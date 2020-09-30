@@ -18,7 +18,7 @@ def get_syntax_error(e):
     return '```py\n{0.text}{1:>{0.offset}}\n{2}: {0}```'.format(e, '^', type(e).__name__)
 
 
-class Owner:
+class Owner(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         self.env = {}

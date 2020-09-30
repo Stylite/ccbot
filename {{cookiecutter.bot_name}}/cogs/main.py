@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 
-class Main:
+class Main(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -21,7 +21,7 @@ class Main:
         """ Gives info/credits on the bot. """
         em = discord.Embed()
         em.add_field(name="Owned by ", value="{{cookiecutter.author}}", inline=False)
-        em.add_field(name="Base written by ", value=f"[William#2018](https://github.com/stylite/ccbot)")
+        em.add_field(name="Base written by ", value=f"[senseful#0009](https://github.com/stylite/ccbot)")
         await ctx.send(embed=em)
 
 def setup(bot):
