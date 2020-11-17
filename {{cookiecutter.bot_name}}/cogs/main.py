@@ -1,10 +1,17 @@
 import discord
 from discord.ext import commands
+from time import time
 
 
 class Main(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+
+    @commands.command()
+    async def duck(self, ctx):
+        em = discord.Embed(title='A Duck')
+        em.set_image(url='https://random-d.uk/api/v2/randomimg?time=' + str(int(time())))
+        await ctx.send(embed=em)
 
     @commands.command()
     async def invite(self, ctx):
